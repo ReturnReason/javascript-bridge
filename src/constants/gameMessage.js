@@ -20,7 +20,7 @@ const OUTPUT_MESSAGE = {
   },
 };
 
-module.export = {
+module.exports = {
   GAME_MESSAGE,
   INPUT_MESSAGE,
   OUTPUT_MESSAGE,
