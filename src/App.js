@@ -1,5 +1,10 @@
+const BridgeGameController = require('./domain/BridgeGameController');
+
 class App {
-  play() {}
+  play() {
+    const bridgeGameController = new BridgeGameController();
+    bridgeGameController.start();
+  }
 }
 
 const app = new App();
