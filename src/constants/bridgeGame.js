@@ -5,6 +5,12 @@ const GAME_COMMAND = {
   quit: 'Q',
 };
 
+const GAME_INFO = {
+  minSize: 3,
+  maxSize: 20,
+};
+
 module.exports = {
   GAME_COMMAND,
+  GAME_INFO,
 };
