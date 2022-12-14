@@ -19,3 +19,9 @@ const OUTPUT_MESSAGE = {
     return `총 시도한 횟수: ${count}`;
   },
 };
+
+module.export = {
+  GAME_MESSAGE,
+  INPUT_MESSAGE,
+  OUTPUT_MESSAGE,
+};
