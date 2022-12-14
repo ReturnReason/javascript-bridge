@@ -1,5 +1,12 @@
 const { GAME_INFO } = require('../constants/bridgeGame');
-const { ERROR_MESSAGE } = require('../constants/errorMessage');
+
+const ERORR_TYPE = {
+  range: 'outOfRange',
+  empty: 'emptyInput',
+  number: 'invalidNumber',
+  move: 'invalidMoveCommand',
+  retry: 'invalidRetryCommand',
+};
 
 class InputValidator {
   checkEmptyInput(input) {}
@@ -11,7 +18,7 @@ class InputValidator {
       return true;
     }
 
-    throw ERROR_MESSAGE.outOfRange;
+    throw ERORR_TYPE.range;
   }
 }
 
