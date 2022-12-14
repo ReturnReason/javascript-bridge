@@ -5,7 +5,18 @@ const { GAME_MESSAGE } = require('../constants/gameMessage');
 class BridgeGameController {
   start() {
     OutputView.printStart(GAME_MESSAGE.start);
+    this.getBridgeSize();
   }
+
+  getBridgeSize() {
+    const userInput = (input) => {
+      this.makeBridgeMap(input);
+    };
+
+    InputView.readBridgeSize(userInput);
+  }
+
+  makeBridgeMap() {}
 }
 
 module.exports = BridgeGameController;
