@@ -1,16 +1,19 @@
 const InputView = require('../view/InputView');
 const OutputView = require('../view/OutputView');
 const { GAME_MESSAGE } = require('../constants/gameMessage');
-const bridgeGameMap = require('../model/bridgeGameMap');
+const bridgeGameMap = require('../model/BridgeGameMap');
 const InputValidator = require('../validator/InputValidator');
 const User = require('../model/User');
+const BridgeGameMapPainter = require('./BridgeGameMapPainter');
 
 class BridgeGameController {
   #bridgeMap;
+  #bridgeGamePainter;
   #user;
 
   constructor() {
     this.inputValidator = new InputValidator();
+    this.#bridgeGamePainter = new BridgeGameMapPainter();
     this.#user = new User();
   }
 
@@ -42,7 +45,13 @@ class BridgeGameController {
     const userInput = (input) => {
       try {
         const isCorrect = this.#bridgeMap.isCorrectBridge(input, this.#user.getLocation());
+        const progressGameMap = this.#bridgeGamePainter.getBridgeMapResult(
+          isCorrect,
+          input,
+          this.#user.getLocation()
+        );
 
+        OutputView.printMap(progressGameMap);
         if (isCorrect) {
           this.#user.increaseLocation();
           this.getMoveCommand();
