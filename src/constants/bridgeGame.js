@@ -10,7 +10,14 @@ const GAME_INFO = {
   maxSize: 20,
 };
 
+const GAME_PATTERN = {
+  o: 'O',
+  x: 'X',
+  vertical: '|',
+};
+
 module.exports = {
   GAME_COMMAND,
   GAME_INFO,
+  GAME_PATTERN,
 };
