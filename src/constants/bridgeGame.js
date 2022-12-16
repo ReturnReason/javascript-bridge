@@ -3,4 +3,9 @@ const GAME_INFO = Object.freeze({
   maxSize: 20,
 });
 
-module.exports = { GAME_INFO };
+const GAME_COMMAND = Object.freeze({
+  up: 'U',
+  down: 'D',
+});
+
+module.exports = { GAME_INFO, GAME_COMMAND };
