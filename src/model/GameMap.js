@@ -9,6 +9,10 @@ class GameMap {
     console.log(this.#gameMap);
   }
 
+  comparePattern(userLocation, moveCommand) {
+    return this.#gameMap[userLocation] === moveCommand;
+  }
+
   getGameMap() {
     return this.#gameMap;
   }
