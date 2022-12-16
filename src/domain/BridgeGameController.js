@@ -2,12 +2,18 @@ const GameMap = require('../model/GameMap');
 const InputValidator = require('../validator/InputValidator');
 const InputView = require('../view/InputView');
 const OutputView = require('../view/OutputView');
+const BridgeGame = require('./BridgeGame');
+const MapPainter = require('./MapPainter');
 
 class BridgeGameController {
   #gameMap;
+  #bridgeGame;
+  #mapPainter;
 
   constructor() {
     this.inputValidator = new InputValidator();
+    this.#bridgeGame = new BridgeGame();
+    this.#mapPainter = new MapPainter();
   }
 
   start() {
@@ -44,6 +50,7 @@ class BridgeGameController {
     const callback = (input) => {
       try {
         this.validateMoveCommand(input);
+        this.paintGameMap(input, this.isCorrectPath(input));
       } catch (error) {
         OutputView.printError(error);
         this.getMoveCommand();
@@ -56,6 +63,15 @@ class BridgeGameController {
   validateMoveCommand(input) {
     this.inputValidator.checkEmpty(input);
     this.inputValidator.checkMoveCommand(input);
+  }
+
+  paintGameMap(moveCommand, isCorrect) {
+    const userMap = this.#mapPainter.drawOX(moveCommand, isCorrect);
+    OutputView.printMap(userMap);
+  }
+
+  isCorrectPath(input) {
+    return this.#gameMap.comparePattern(this.#bridgeGame.getLocation(), input);
   }
 }
 
