@@ -26,6 +26,7 @@ class BridgeGameController {
   }
 
   bridgeSizeValidate(input) {
+    this.inputValidator.checkEmpty(input);
     this.inputValidator.checkValidSize(input);
   }
 }

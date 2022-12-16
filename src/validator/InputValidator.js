@@ -6,6 +6,10 @@ class InputValidator {
     if (input < GAME_INFO.minSize || input > GAME_INFO.maxSize) throw ERROR_MESSAGE.invalidSize;
     return true;
   }
+
+  checkEmpty(input) {
+    if (!input || input.includes(' ')) throw ERROR_MESSAGE.emptyInput;
+  }
 }
 
 module.exports = InputValidator;
