@@ -4,12 +4,14 @@ const OUTPUT_MESSAGE = Object.freeze({
 
 const INPUT_MESSAGE = Object.freeze({
   bridgeSize: '다리의 길이를 입력해주세요.\n',
+  move: '이동할 칸을 선택해주세요. (위: U, 아래: D)\n',
 });
 
 const ERROR_MESSAGE = Object.freeze({
   invalidSize: '[ERROR] 다리 길이는 3부터 20 사이의 숫자여야 합니다.\n',
   emptyInput: '[ERROR] 미입력 또는 공백은 입력할 수 없습니다.\n',
   notANumber: '[ERROR] 숫자가 아닌 값은 입력할 수 없습니다.\n',
+  invalidMoveCommand: '[ERROR] 대문자 U 또는 대문자 D만 입력할 수 있습니다.\n',
 });
 
 module.exports = {
