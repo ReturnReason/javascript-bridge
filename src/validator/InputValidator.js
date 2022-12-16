@@ -9,6 +9,12 @@ class InputValidator {
 
   checkEmpty(input) {
     if (!input || input.includes(' ')) throw ERROR_MESSAGE.emptyInput;
+    return true;
+  }
+
+  checkIsNumber(input) {
+    if (Number.isNaN(Number(input)) || input.includes('.')) throw ERROR_MESSAGE.notANumber;
+    return true;
   }
 }
 
