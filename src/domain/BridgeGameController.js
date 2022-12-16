@@ -1,8 +1,11 @@
+const GameMap = require('../model/GameMap');
 const InputValidator = require('../validator/InputValidator');
 const InputView = require('../view/InputView');
 const OutputView = require('../view/OutputView');
 
 class BridgeGameController {
+  #gameMap;
+
   constructor() {
     this.inputValidator = new InputValidator();
   }
@@ -15,9 +18,10 @@ class BridgeGameController {
   getBridgeSize() {
     const callback = (input) => {
       try {
-        this.bridgeSizeValidate(input);
+        this.validateBridgeSize(input);
+        this.#gameMap = new GameMap(input);
       } catch (error) {
-        console.log(error);
+        OutputView.printError(error);
         this.getBridgeSize();
       }
     };
@@ -25,7 +29,7 @@ class BridgeGameController {
     InputView.readBridgeSize(callback);
   }
 
-  bridgeSizeValidate(input) {
+  validateBridgeSize(input) {
     this.inputValidator.checkEmpty(input);
     this.inputValidator.checkValidSize(input);
     this.inputValidator.checkIsNumber(input);
