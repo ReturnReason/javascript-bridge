@@ -19,7 +19,7 @@ class BridgeGameController {
     const callback = (input) => {
       try {
         this.validateBridgeSize(input);
-        this.#gameMap = new GameMap(input);
+        this.createGameMap(input);
       } catch (error) {
         OutputView.printError(error);
         this.getBridgeSize();
@@ -33,6 +33,10 @@ class BridgeGameController {
     this.inputValidator.checkEmpty(input);
     this.inputValidator.checkValidSize(input);
     this.inputValidator.checkIsNumber(input);
+  }
+
+  createGameMap(input) {
+    this.#gameMap = new GameMap(input);
   }
 }
 
