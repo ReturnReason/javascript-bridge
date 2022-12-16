@@ -8,6 +8,10 @@ const OutputView = {
   printStart() {
     print(OUTPUT_MESSAGE.start);
   },
+
+  printError(error) {
+    print(error);
+  },
   /**
    * 현재까지 이동한 다리의 상태를 정해진 형식에 맞춰 출력한다.
    * <p>
