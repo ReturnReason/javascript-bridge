@@ -15,12 +15,18 @@ class BridgeGameController {
   getBridgeSize() {
     const callback = (input) => {
       try {
+        this.bridgeSizeValidate(input);
       } catch (error) {
         console.log(error);
+        this.getBridgeSize();
       }
     };
 
     InputView.readBridgeSize(callback);
+  }
+
+  bridgeSizeValidate(input) {
+    this.inputValidator.checkValidSize(input);
   }
 }
 
