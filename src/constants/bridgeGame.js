@@ -1,6 +1,9 @@
 const GAME_INFO = Object.freeze({
   minSize: 3,
   maxSize: 20,
+  o: 'O',
+  x: 'X',
+  verticalBar: '|',
 });
 
 const GAME_COMMAND = Object.freeze({
